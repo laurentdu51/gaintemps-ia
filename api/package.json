@@ -1,0 +1,19 @@
+{
+  "name": "gaintemps-ia-api",
+  "version": "1.0.0",
+  "description": "API Docker pour le formulaire de contact GainTempsIA",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["api", "contact", "resend", "docker"],
+  "author": "Laurent Hazart",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "resend": "^3.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  }
+}

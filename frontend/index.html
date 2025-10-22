@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GainTempsIA - Automatisation Intelligente pour PME et Artisans</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #2563eb, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+
+        .service-card p {
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .contact-item a:hover {
+            border-bottom-color: white;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: white;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: white;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            display: block;
+            background: rgba(34, 197, 94, 0.2);
+            border: 2px solid #22c55e;
+        }
+
+        .form-message.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.2);
+            border: 2px solid #ef4444;
+        }
+
+        .contact-info {
+            margin-top: 3rem;
+        }
+
+        /* Examples Section */
+        .examples {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .examples-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .examples-intro p {
+            font-size: 1.2rem;
+            color: #64748b;
+            line-height: 1.8;
+        }
+
+        .workflow-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .workflow-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+
+        .workflow-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .workflow-icon {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 80px;
+            height: 80px;
+        }
+
+        .workflow-title {
+            flex: 1;
+        }
+
+        .workflow-title h3 {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .time-saved {
+            display: inline-block;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .workflow-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .before-after {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #ef4444;
+        }
+
+        .before-after.after {
+            border-left-color: #22c55e;
+        }
+
+        .before-after h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .before-after ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .before-after li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .before-after li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #94a3b8;
+            font-weight: bold;
+        }
+
+        .benefits {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 12px;
+        }
+
+        .benefits h4 {
+            font-size: 1.2rem;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            color: white;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow-content {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">GainTempsIA</div>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#exemples">Exemples</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="container">
+            <h1>Libérez du temps pour votre entreprise</h1>
+            <p>Automatisez vos tâches répétitives et chronophages grâce à l'Intelligence Artificielle</p>
+            <a href="#contact" class="cta-button">Parlons de votre projet</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Workers IA sur mesure</h3>
+                    <p>Création d'assistants intelligents adaptés à vos processus métier pour automatiser vos tâches répétitives et gagner un temps précieux.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Gestion Administrative Intelligente</h3>
+                    <p>Automatisation de la facturation, des devis, de la gestion des emails et de la planification. Simplifiez votre paperasse administrative.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔗</div>
+                    <h3>Intégration & Formation</h3>
+                    <p>Mise en place des solutions dans votre environnement existant et accompagnement de vos équipes pour une adoption réussie.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Support & Optimisation</h3>
+                    <p>Suivi continu de vos solutions IA, ajustements et améliorations pour maximiser votre efficacité au fil du temps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Examples Section -->
+    <section id="exemples" class="examples">
+        <div class="container">
+            <h2 class="section-title">Découvrez comment l'IA transforme votre quotidien</h2>
+            <div class="examples-intro">
+                <p>Des exemples concrets de workflows intelligents qui libèrent votre temps et améliorent votre productivité.</p>
+            </div>
+
+            <!-- Example 1: Email Management -->
+            <div class="workflow-card">
+                <div class="workflow-header">
+                    <div class="workflow-icon">📧</div>
+                    <div class="workflow-title">
+                        <h3>Gestion Intelligente des Emails</h3>
+                        <span class="time-saved">⏱️ Gagnez 5h/semaine</span>
+                    </div>
+                </div>
+                <div class="workflow-content">
+                    <div class="before-after">
+                        <h4>❌ Avant</h4>
+                        <ul>
+                            <li>Lecture manuelle de 50-100 emails par jour</li>
+                            <li>Temps perdu à trier les emails importants</li>
+                            <li>Réponses répétitives aux mêmes questions</li>
+                            <li>Risque d'oubli de messages importants</li>
+                        </ul>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ Après</h4>
+                        <ul>
+                            <li>Tri automatique par priorité et catégorie</li>
+                            <li>Résumés quotidiens des emails importants</li>
+                            <li>Réponses automatiques aux demandes courantes</li>
+                            <li>Alertes intelligentes pour les urgences</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <h4>🎯 Bénéfices</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">✓ Réactivité améliorée</div>
+                        <div class="benefit-item">✓ Zéro email manqué</div>
+                        <div class="benefit-item">✓ Satisfaction client accrue</div>
+                        <div class="benefit-item">✓ Focus sur l'essentiel</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 2: Planning Assistant -->
+            <div class="workflow-card">
+                <div class="workflow-header">
+                    <div class="workflow-icon">📅</div>
+                    <div class="workflow-title">
+                        <h3>Assistant de Planification</h3>
+                        <span class="time-saved">⏱️ Gagnez 3h/semaine</span>
+                    </div>
+                </div>
+                <div class="workflow-content">
+                    <div class="before-after">
+                        <h4>❌ Avant</h4>
+                        <ul>
+                            <li>Échanges multiples pour fixer un RDV</li>
+                            <li>Gestion manuelle des rappels</li>
+                            <li>Conflits d'agenda fréquents</li>
+                            <li>Oublis de confirmations</li>
+                        </ul>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ Après</h4>
+                        <ul>
+                            <li>Prise de RDV automatique 24/7</li>
+                            <li>Synchronisation multi-calendriers</li>
+                            <li>Rappels automatiques aux participants</li>
+                            <li>Proposition intelligente de créneaux</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <h4>🎯 Bénéfices</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">✓ Disponible 24/7</div>
+                        <div class="benefit-item">✓ Moins d'absences</div>
+                        <div class="benefit-item">✓ Agenda optimisé</div>
+                        <div class="benefit-item">✓ Expérience client fluide</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 3: Document Generation -->
+            <div class="workflow-card">
+                <div class="workflow-header">
+                    <div class="workflow-icon">📄</div>
+                    <div class="workflow-title">
+                        <h3>Génération Automatique de Documents</h3>
+                        <span class="time-saved">⏱️ Gagnez 4h/semaine</span>
+                    </div>
+                </div>
+                <div class="workflow-content">
+                    <div class="before-after">
+                        <h4>❌ Avant</h4>
+                        <ul>
+                            <li>Création manuelle de devis et factures</li>
+                            <li>Risques d'erreurs de saisie</li>
+                            <li>Temps perdu à chercher les modèles</li>
+                            <li>Comptes-rendus de réunion laborieux</li>
+                        </ul>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ Après</h4>
+                        <ul>
+                            <li>Génération instantanée de devis/factures</li>
+                            <li>Données pré-remplies automatiquement</li>
+                            <li>Modèles adaptés à chaque client</li>
+                            <li>Synthèses de réunions automatiques</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <h4>🎯 Bénéfices</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">✓ Zéro erreur</div>
+                        <div class="benefit-item">✓ Image professionnelle</div>
+                        <div class="benefit-item">✓ Réactivité commerciale</div>
+                        <div class="benefit-item">✓ Traçabilité complète</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 4: Customer Follow-up -->
+            <div class="workflow-card">
+                <div class="workflow-header">
+                    <div class="workflow-icon">📞</div>
+                    <div class="workflow-title">
+                        <h3>Suivi Client Automatisé</h3>
+                        <span class="time-saved">⏱️ Gagnez 3h/semaine</span>
+                    </div>
+                </div>
+                <div class="workflow-content">
+                    <div class="before-after">
+                        <h4>❌ Avant</h4>
+                        <ul>
+                            <li>Relances clients oubliées</li>
+                            <li>Réponses tardives aux demandes</li>
+                            <li>Perte de leads par manque de suivi</li>
+                            <li>Questions FAQ répétitives</li>
+                        </ul>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ Après</h4>
+                        <ul>
+                            <li>Relances automatiques programmées</li>
+                            <li>Réponses instantanées aux FAQ</li>
+                            <li>Nurturing des prospects automatique</li>
+                            <li>Notifications pour cas complexes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <h4>🎯 Bénéfices</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">✓ Taux de conversion +</div>
+                        <div class="benefit-item">✓ Fidélisation améliorée</div>
+                        <div class="benefit-item">✓ Satisfaction client</div>
+                        <div class="benefit-item">✓ Chiffre d'affaires +</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example 5: Reporting -->
+            <div class="workflow-card">
+                <div class="workflow-header">
+                    <div class="workflow-icon">📊</div>
+                    <div class="workflow-title">
+                        <h3>Reporting et Synthèses Automatiques</h3>
+                        <span class="time-saved">⏱️ Gagnez 2h/semaine</span>
+                    </div>
+                </div>
+                <div class="workflow-content">
+                    <div class="before-after">
+                        <h4>❌ Avant</h4>
+                        <ul>
+                            <li>Compilation manuelle des données</li>
+                            <li>Tableaux Excel complexes</li>
+                            <li>Rapports hebdomadaires chronophages</li>
+                            <li>Vision d'activité limitée</li>
+                        </ul>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ Après</h4>
+                        <ul>
+                            <li>Tableaux de bord en temps réel</li>
+                            <li>Rapports automatiques personnalisés</li>
+                            <li>Alertes sur indicateurs clés</li>
+                            <li>Synthèses d'activité intelligentes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <h4>🎯 Bénéfices</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">✓ Décisions éclairées</div>
+                        <div class="benefit-item">✓ Anticipation des problèmes</div>
+                        <div class="benefit-item">✓ Performance mesurée</div>
+                        <div class="benefit-item">✓ Pilotage facilité</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3>Votre besoin est différent ?</h3>
+                <p>Chaque entreprise est unique. Discutons de vos processus spécifiques et créons ensemble le workflow IA qui vous correspond.</p>
+                <a href="#contact" class="cta-button">Parlons de votre projet</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="apropos" class="about">
+        <div class="container">
+            <h2 class="section-title">À propos</h2>
+            <div class="about-content">
+                <p>Suite à de nombreuses années dans différents domaines de l'informatique, j'ai développé de solides compétences en analyse fonctionnelle, aussi bien sur le plan technique qu'humain.</p>
+                <p>Aujourd'hui, je me rends compte que beaucoup d'entreprises perdent un temps précieux sur des tâches automatisables. L'Intelligence Artificielle permet de résoudre et de faciliter des processus souvent lourds et chronophages.</p>
+                <p>Mon objectif est d'aider les PME et artisans à se concentrer sur leur cœur de métier en automatisant intelligemment leurs tâches administratives et répétitives.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Contactez-nous</h2>
+                <p>Prêt à gagner du temps ? Discutons de votre projet !</p>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Votre nom *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Votre email *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Votre téléphone (optionnel)">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="company" name="company" placeholder="Votre entreprise">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Parlez-nous de votre projet *" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Envoyer le message</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>💼</span>
+                        <a href="https://www.linkedin.com/in/laurent-hazart-4b9a95329/" target="_blank">Retrouvez-moi sur LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 GainTempsIA. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Gestion du formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('formMessage');
+            const submitButton = this.querySelector('.submit-button');
+            
+            // Désactiver le bouton pendant l'envoi
+            submitButton.disabled = true;
+            submitButton.textContent = 'Envoi en cours...';
+            
+            // Récupération des données du formulaire
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                company: document.getElementById('company').value,
+                message: document.getElementById('message').value
+            };
+            
+            try {
+                // Appel à l'API
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Succès
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = '✓ Message envoyé avec succès ! Nous vous recontacterons rapidement.';
+                    
+                    // Réinitialiser le formulaire
+                    this.reset();
+                    
+                    // Masquer le message après 5 secondes
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    // Erreur de l'API
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = '✗ ' + (data.error || 'Erreur lors de l\'envoi du message');
+                }
+            } catch (error) {
+                // Erreur réseau
+                console.error('Erreur:', error);
+                formMessage.className = 'form-message error';
+                formMessage.textContent = '✗ Erreur de connexion. Veuillez réessayer plus tard.';
+            } finally {
+                // Réactiver le bouton
+                submitButton.disabled = false;
+                submitButton.textContent = 'Envoyer le message';
+            }
+        });
+
+        // Smooth scroll pour la navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
