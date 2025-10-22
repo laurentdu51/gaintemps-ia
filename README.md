@@ -23,7 +23,7 @@ GainTempsIA aide les TPE et PME à automatiser leurs tâches répétitives et ch
 
 1. **Clonez le repository**
 ```bash
-git clone https://github.com/votre-username/gaintemps-ia.git
+git clone https://github.com/laurentdu51/gaintemps-ia.git
 cd gaintemps-ia
 ```
 
