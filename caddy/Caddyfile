@@ -1,7 +1,7 @@
 # Caddyfile pour GainTempsIA
 
 # Site principal
-ai.duhaz.fr {
+ia.duhaz.fr {
     root * /var/www/gaintemps-ia
     file_server
     encode gzip
@@ -38,6 +38,6 @@ ai.duhaz.fr {
 }
 
 # Redirection www vers non-www
-www.ai.duhaz.fr {
-    redir https://ai.duhaz.fr{uri} permanent
+www.ia.duhaz.fr {
+    redir https://ia.duhaz.fr{uri} permanent
 }

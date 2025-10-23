@@ -8,7 +8,7 @@
 - ✅ Meta keywords
 - ✅ Meta author
 - ✅ Meta robots (index, follow)
-- ✅ Canonical URL (https://ai.duhaz.fr)
+- ✅ Canonical URL (https://ia.duhaz.fr)
 
 ### Open Graph (Facebook, LinkedIn)
 - ✅ og:type (website)
@@ -85,13 +85,13 @@ Placez les fichiers dans `/frontend/`
 
 #### Google Search Console
 1. Allez sur https://search.google.com/search-console
-2. Ajoutez la propriété `ai.duhaz.fr`
+2. Ajoutez la propriété `ia.duhaz.fr`
 3. Vérifiez le domaine (méthode DNS recommandée)
-4. Soumettez le sitemap : `https://ai.duhaz.fr/sitemap.xml`
+4. Soumettez le sitemap : `https://ia.duhaz.fr/sitemap.xml`
 
 #### Bing Webmaster Tools
 1. Allez sur https://www.bing.com/webmasters
-2. Ajoutez le site `ai.duhaz.fr`
+2. Ajoutez le site `ia.duhaz.fr`
 3. Vérifiez le domaine
 4. Soumettez le sitemap
 
@@ -116,17 +116,17 @@ Remplacez `G-XXXXXXXXXX` par votre ID Google Analytics.
 
 #### Facebook Debugger
 https://developers.facebook.com/tools/debug/
-- Entrez : `https://ai.duhaz.fr`
+- Entrez : `https://ia.duhaz.fr`
 - Cliquez "Scrape Again" pour rafraîchir le cache
 
 #### LinkedIn Post Inspector
 https://www.linkedin.com/post-inspector/
-- Entrez : `https://ai.duhaz.fr`
+- Entrez : `https://ia.duhaz.fr`
 - Vérifiez l'aperçu
 
 #### Twitter Card Validator
 https://cards-dev.twitter.com/validator
-- Entrez : `https://ai.duhaz.fr`
+- Entrez : `https://ia.duhaz.fr`
 - Vérifiez l'aperçu
 
 ## 🎯 Mots-clés Optimisés
@@ -229,7 +229,7 @@ Testez votre site :
 │                                        │
 │   ⚡ Gagnez jusqu'à 17h/semaine        │
 │                                        │
-│   ai.duhaz.fr                          │
+│   ia.duhaz.fr                          │
 │                                        │
 └────────────────────────────────────────┘
      1200px x 630px

@@ -7,7 +7,7 @@
 - ✅ **Open Graph** pour Facebook et LinkedIn
 - ✅ **Twitter Cards** pour Twitter
 - ✅ **Schema.org** (Structured Data - ProfessionalService)
-- ✅ **Canonical URL** : https://ai.duhaz.fr
+- ✅ **Canonical URL** : https://ia.duhaz.fr
 - ✅ **robots.txt** pour l'indexation
 - ✅ **sitemap.xml** pour les moteurs de recherche
 
@@ -17,10 +17,10 @@
 - ✅ **Design responsive** (mobile + desktop)
 
 ### 🌐 Domaine Final
-- ✅ **URL** : https://ai.duhaz.fr
+- ✅ **URL** : https://ia.duhaz.fr
 - ✅ **Redirection www** → non-www
 - ✅ **CORS mis à jour** dans l'API
-- ✅ **Caddyfile configuré** pour ai.duhaz.fr
+- ✅ **Caddyfile configuré** pour ia.duhaz.fr
 
 ## 📊 État Actuel du Projet
 
@@ -53,7 +53,7 @@
 │                                    │
 │    ⚡ Gagnez jusqu'à 17h/semaine   │
 │                                    │
-│    ai.duhaz.fr                     │
+│    ia.duhaz.fr                     │
 │                                    │
 └────────────────────────────────────┘
 ```
@@ -103,10 +103,10 @@ docker compose up -d
 
 ```bash
 # Test API
-curl https://ai.duhaz.fr/api/health
+curl https://ia.duhaz.fr/api/health
 
 # Test frontend
-curl https://ai.duhaz.fr
+curl https://ia.duhaz.fr
 
 # Test formulaire
 # Remplissez le formulaire sur le site
@@ -116,13 +116,13 @@ curl https://ai.duhaz.fr
 
 #### Google Search Console
 1. Allez sur : https://search.google.com/search-console
-2. Ajoutez la propriété : `ai.duhaz.fr`
+2. Ajoutez la propriété : `ia.duhaz.fr`
 3. Vérifiez le domaine (DNS TXT record)
-4. Soumettez le sitemap : `https://ai.duhaz.fr/sitemap.xml`
+4. Soumettez le sitemap : `https://ia.duhaz.fr/sitemap.xml`
 
 #### Bing Webmaster Tools
 1. Allez sur : https://www.bing.com/webmasters
-2. Ajoutez le site : `ai.duhaz.fr`
+2. Ajoutez le site : `ia.duhaz.fr`
 3. Vérifiez le domaine
 4. Soumettez le sitemap
 
@@ -130,17 +130,17 @@ curl https://ai.duhaz.fr
 
 #### Facebook Debugger
 - URL : https://developers.facebook.com/tools/debug/
-- Testez : `https://ai.duhaz.fr`
+- Testez : `https://ia.duhaz.fr`
 - Cliquez "Scrape Again" pour rafraîchir
 
 #### LinkedIn Post Inspector
 - URL : https://www.linkedin.com/post-inspector/
-- Testez : `https://ai.duhaz.fr`
+- Testez : `https://ia.duhaz.fr`
 - Vérifiez l'aperçu
 
 #### Twitter Card Validator
 - URL : https://cards-dev.twitter.com/validator
-- Testez : `https://ai.duhaz.fr`
+- Testez : `https://ia.duhaz.fr`
 - Vérifiez l'aperçu
 
 ### 7️⃣ (Optionnel) Installer Google Analytics
@@ -215,7 +215,7 @@ Voir instructions dans `SEO-GUIDE.md`
 
 ## 🔗 Liens Importants
 
-- **Site** : https://ai.duhaz.fr
+- **Site** : https://ia.duhaz.fr
 - **GitHub** : https://github.com/VOTRE-USERNAME/gaintemps-ia
 - **LinkedIn** : https://www.linkedin.com/in/laurent-hazart-4b9a95329/
 - **Email** : contact@duhaz.fr
@@ -224,7 +224,7 @@ Voir instructions dans `SEO-GUIDE.md`
 
 - [ ] Images créées (OG + favicons)
 - [ ] Déployé sur Raspberry Pi
-- [ ] DNS configuré pour ai.duhaz.fr
+- [ ] DNS configuré pour ia.duhaz.fr
 - [ ] HTTPS actif (Caddy auto)
 - [ ] API fonctionnelle
 - [ ] Formulaire de contact testé
@@ -247,7 +247,7 @@ Voir instructions dans `SEO-GUIDE.md`
 Votre site **GainTempsIA** est maintenant :
 - ✅ Optimisé SEO
 - ✅ Prêt pour les réseaux sociaux
-- ✅ Configuré pour ai.duhaz.fr
+- ✅ Configuré pour ia.duhaz.fr
 - ✅ Documenté complètement
 - ✅ Prêt pour le déploiement
 

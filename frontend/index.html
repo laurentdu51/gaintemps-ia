@@ -3,7 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GainTempsIA - Automatisation Intelligente pour PME et Artisans</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>GainTempsIA - Automatisation IA pour TPE/PME | Gagnez du temps avec l'Intelligence Artificielle</title>
+    <meta name="description" content="GainTempsIA aide les TPE et PME à automatiser leurs tâches répétitives grâce à l'IA. Workers IA sur mesure, gestion administrative intelligente, économisez jusqu'à 17h/semaine.">
+    <meta name="keywords" content="automatisation IA, intelligence artificielle PME, workers IA, gestion administrative IA, consulting IA, automatisation emails, TPE PME, gain de temps, productivité">
+    <meta name="author" content="Laurent Hazart">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://ia.duhaz.fr">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ia.duhaz.fr">
+    <meta property="og:title" content="GainTempsIA - Automatisation IA pour TPE/PME">
+    <meta property="og:description" content="Automatisez vos tâches répétitives et gagnez jusqu'à 17h/semaine. Workers IA sur mesure pour TPE et PME.">
+    <meta property="og:image" content="https://ia.duhaz.fr/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="GainTempsIA">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ia.duhaz.fr">
+    <meta name="twitter:title" content="GainTempsIA - Automatisation IA pour TPE/PME">
+    <meta name="twitter:description" content="Automatisez vos tâches répétitives et gagnez jusqu'à 17h/semaine. Workers IA sur mesure pour TPE et PME.">
+    <meta name="twitter:image" content="https://ia.duhaz.fr/og-image.jpg">
+    
+    <!-- LinkedIn -->
+    <meta property="og:image:secure_url" content="https://ia.duhaz.fr/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "GainTempsIA",
+      "description": "Service de consulting en Intelligence Artificielle pour l'automatisation des tâches pour TPE et PME",
+      "url": "https://ia.duhaz.fr",
+      "logo": "https://ia.duhaz.fr/logo.png",
+      "image": "https://ia.duhaz.fr/og-image.jpg",
+      "telephone": "Sur demande après premier contact",
+      "email": "contact@duhaz.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "FR"
+      },
+      "priceRange": "Sur devis",
+      "areaServed": {
+        "@type": "Country",
+        "name": "France"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/laurent-hazart-4b9a95329/"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Laurent Hazart",
+        "sameAs": "https://www.linkedin.com/in/laurent-hazart-4b9a95329/"
+      },
+      "knowsAbout": ["Intelligence Artificielle", "Automatisation", "Machine Learning", "Productivité", "Gestion administrative"],
+      "serviceType": ["Consulting IA", "Automatisation", "Workers IA", "Intégration IA"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "1"
+      }
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -341,6 +414,53 @@
 
         .contact-info {
             margin-top: 3rem;
+        }
+
+        /* Social Share Buttons */
+        .social-share {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-share a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+            text-decoration: none;
+            font-size: 1.3rem;
+        }
+
+        .social-share a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+
+        .social-share .linkedin { color: #0077b5; }
+        .social-share .facebook { color: #1877f2; }
+        .social-share .twitter { color: #1da1f2; }
+        .social-share .whatsapp { color: #25d366; }
+        .social-share .email { color: #ea4335; }
+
+        @media (max-width: 768px) {
+            .social-share {
+                position: static;
+                transform: none;
+                flex-direction: row;
+                justify-content: center;
+                margin: 2rem 0;
+            }
         }
 
         /* Examples Section */
