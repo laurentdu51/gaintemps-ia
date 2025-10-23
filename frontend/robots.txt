@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ai.duhaz.fr/sitemap.xml
+
+# Disallow admin or private paths if any
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl-delay (optional, in seconds)
+Crawl-delay: 1
