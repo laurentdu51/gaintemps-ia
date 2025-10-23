@@ -45,8 +45,10 @@ app.post('/api/contact', async (req, res) => {
     }
 
     // Envoi de l'email via Resend
+    // NOTE: L'adresse 'from' doit être un domaine vérifié sur Resend
+    // Pour tester, vous pouvez utiliser: onboarding@resend.dev
     const { data, error } = await resend.emails.send({
-      from: 'contact@duhaz.fr',
+      from: 'GainTempsIA <onboarding@resend.dev>',  // Email de test Resend
       to: 'contact@duhaz.fr',
       replyTo: email,
       subject: `Nouveau contact depuis GainTempsIA - ${name}`,
