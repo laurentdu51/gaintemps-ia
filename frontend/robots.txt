@@ -1,12 +1,11 @@
 User-agent: *
 Allow: /
 
+# Disallow API endpoints (POST only, not meant for crawling)
+Disallow: /api/
+
 # Sitemap
 Sitemap: https://ia.duhaz.fr/sitemap.xml
-
-# Disallow admin or private paths if any
-# Disallow: /admin/
-# Disallow: /private/
 
 # Crawl-delay (optional, in seconds)
 Crawl-delay: 1
